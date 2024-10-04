@@ -7,6 +7,7 @@ function updateWeatherApp(response) {
   let windElement = document.querySelector("#weather-app-wind");
   let timeElement = document.querySelector("#weather-app-time");
   let date = new Date(response.data.time * 1000);
+  let iconElement = document.querySelector("#weather-app-icon");
 
   cityElement.innerHTML = response.data.city;
   countryElement.innerHTML = response.data.country;
@@ -15,8 +16,7 @@ function updateWeatherApp(response) {
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
   windElement.innerHTML = `${response.data.wind.speed}km/h`;
   timeElement.innerHTML = formatDate(date);
-
-  console.log(response.data.time);
+  iconElement.innerHTML = `<img class="weather-app-icon" src="${response.data.condition.icon_url}" alt="${response.data.condition.icon}"/>`;
 }
 
 function formatDate(date) {
