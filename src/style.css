@@ -54,6 +54,16 @@ main {
   color: #272142;
   font-size: 38px;
   line-height: 48px;
+  font-weight: bold;
+}
+
+.weather-app-country {
+  font-size: 16px;
+  line-height: 24px;
+  color: #272142;
+  font-weight: 500;
+  font-style: italic;
+  padding: 0 0 0 10px;
 }
 
 .weather-app-details {

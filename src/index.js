@@ -2,8 +2,15 @@ function updateWeather(response) {
   let cityElement = document.querySelector("#weather-app-city");
   cityElement.innerHTML = response.data.city;
 
+  let countryElement = document.querySelector("#weather-app-country");
+  countryElement.innerHTML = response.data.country;
+
   let temperatureElement = document.querySelector("#weather-app-temperature");
   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
+
+  let conditionElement = document.querySelector("#weather-app-condition");
+  conditionElement.innerHTML = response.data.condition.description;
+  console.log(response.data.condition.description);
 
   let humidityElement = document.querySelector("#weather-app-humidity");
   humidityElement.innerHTML = response.data.temperature.humidity;
@@ -29,4 +36,4 @@ let searchFormElement = document.querySelector("#search-form");
 
 searchFormElement.addEventListener("submit", searchSubmit);
 
-searchCity("Barcelona")
+searchCity("Barcelona");
