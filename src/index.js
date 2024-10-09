@@ -52,8 +52,35 @@ function searchSubmit(event) {
   searchCity(searchInput.value);
 }
 
+function displayForecast() {
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+  let forecastHtml = "";
+
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      `
+    <div class="weather-app-forecast-option">
+    <div class="weather-app-forecast-day">${day}</div>
+    <div class="weather-app-forecast-icon">☀</div>
+    <div class="weather-app-forecast-temperatures">
+    <div class="weather-app-forecast-temperature">
+    <strong>19°C</strong>
+    </div>
+    <div class="weather-app-forecast-temperature">15°C</div>
+    </div>
+    </div>
+    
+    `;
+  });
+
+  let forecastElement = document.querySelector("#weather-app-forecast");
+  forecastElement.innerHTML = forecastHtml;
+}
+
 let searchFormElement = document.querySelector("#search-form");
 
 searchFormElement.addEventListener("submit", searchSubmit);
 
 searchCity("Barcelona");
+displayForecast();
